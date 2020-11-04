@@ -1,9 +1,11 @@
 import './App.css';
+import 'weather-icons/css/weather-icons.css'
+import Weather from './components/Weather'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      Weather App
+      <Weather/>
     </div>
   );
 }
