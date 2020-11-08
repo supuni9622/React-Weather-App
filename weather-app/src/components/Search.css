@@ -1,0 +1,18 @@
+form {
+    margin-top: 3rem;
+}
+
+form input[name='city'],
+form input[name='country']{
+    background-color: transparent;
+    color: white;
+    border: 0;
+    border-bottom: 2px solid whitesmoke;
+    border-radius: 0;
+}
+
+/* To remove the shadow when click on the input */
+form input:focus {
+    background-color: transparent;
+    box-shadow: none !important;
+}

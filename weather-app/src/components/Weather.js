@@ -13,7 +13,7 @@ const Weather = ({city, country, temp_celcius,temp_min,temp_max, description, we
     return (
         <div className='container'>
             <h1>Weather App</h1>
-            <div className="cards">
+            <div className="cards pt-4">
                 <h1>{city}, {country}</h1>
                 <h5 className='py-4'>
                     <i className={`wi ${weatherIcon}`} display='1'/>

@@ -1,11 +1,11 @@
 import React, {useState,useCallback, useEffect} from 'react'
 import './App.css';
 import 'weather-icons/css/weather-icons.css'
+
 import Weather from './components/Weather'
+import Search from './components/Search'
 
 const API_key = '4939b73b7de87f845f81350795c47adc'
-
-//api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
 
 // TO DO: Wind degree and speed --> interactive way
 // TO DO : Humidity and presure
@@ -87,6 +87,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Search/>
       <Weather 
         city={city} 
         country={country} 
