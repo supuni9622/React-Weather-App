@@ -24,7 +24,7 @@ const Search = ({loadWeather, error}) => {
                             className='form-control' 
                             name='country' 
                             autoComplete='off'
-                            placeholder = 'Country'
+                            placeholder = 'Country Code'
                         />
                     </div>
                     <div className='col-md-3 mt-md-0 text-md-left'>
