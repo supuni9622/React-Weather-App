@@ -5,10 +5,10 @@ const Search = ({loadWeather, error}) => {
 
     const [countryList, setCountryList] = useState([])
 
+    // TO DO: Fix CORS policy issue. worked well with NoCORE extenstion in mozalla developer browser
     const getCountryCode = useCallback(async()=> {
         const api_call = await fetch(`https://api.printful.com/countries`) 
-        const response = await api_call.json()
-        console.debug(response.result)
+        let response = await api_call.json()
         const countryArray = response.result
         const countries = countryArray.map((country)=> (
             
