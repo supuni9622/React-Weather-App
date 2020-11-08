@@ -16,3 +16,20 @@ form input:focus {
     background-color: transparent;
     box-shadow: none !important;
 }
+
+.input-select{
+    background-color: transparent;
+    color: white;
+    border: 0;
+    border-bottom: 2px solid whitesmoke;
+    border-radius: 0;
+}
+
+.input-select:focus{
+    background-color: transparent;
+    box-shadow: none !important;
+}
+
+.input-option{
+    background-color: transparent;
+}

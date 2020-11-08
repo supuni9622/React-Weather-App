@@ -1,4 +1,4 @@
-import React, {useState,useCallback, useEffect, useMemo} from 'react'
+import React, {useState,useCallback} from 'react'
 import './App.css';
 import 'weather-icons/css/weather-icons.css'
 
@@ -81,7 +81,7 @@ const App = () => {
 
     // Set input values using name property
     const city = e.target.elements.city.value
-    const country = e.target.elements.country.value
+    const country = e.target.value
 
     if(city || (city && country)){
 
