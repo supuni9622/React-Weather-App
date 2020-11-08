@@ -1,0 +1,17 @@
+body{
+    background-color:rgb(0, 0, 41);
+}
+
+.content {
+    background-color: rgb(255,255,255,0.3);
+    color: black;
+    min-width: 400px;
+    height: 480px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    float: left;
+  -ms-transform: rotate(7deg); /* IE 9 */
+  -webkit-transform: rotate(7deg); /* Safari */
+  transform: rotate(7deg);
+}
