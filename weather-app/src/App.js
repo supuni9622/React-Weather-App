@@ -66,28 +66,37 @@ const App = () => {
     }
   }
 
-  const getWeather = useCallback(async() => {
-     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_key}`) 
-     const response = await api_call.json()
-     console.log(response)
-     setCity(response.name)
-     setCountry(response.sys.country)
-     setCelsius(calCelsius(response.main.temp))
-     setTemp_min(calCelsius(response.main.temp_min))
-     setTemp_max(calCelsius(response.main.temp_max))
-     setDescription(response.weather[0].description) 
-     setMain(response.weather[0].main)
+  const getWeather = useCallback(async(e) => {
+    e.preventDefault()
 
-     getWeatherIcon(weatherIcon,response.weather[0].id)
-    },[])
+    // Set input values using name property
+    const city = e.target.elements.city.value
+    const country = e.target.elements.country.value
 
-    useEffect(()=>{
-      getWeather()
+    if(city && country){
+
+      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_key}`) 
+      const response = await api_call.json()
+      console.log(response)
+      setCity(response.name)
+      setCountry(response.sys.country)
+      setCelsius(calCelsius(response.main.temp))
+      setTemp_min(calCelsius(response.main.temp_min))
+      setTemp_max(calCelsius(response.main.temp_max))
+      setDescription(response.weather[0].description) 
+      setMain(response.weather[0].main)
+
+      getWeatherIcon(weatherIcon,response.weather[0].id)
+
+    }else {
+      setError(true)
+    }
+     
     },[])
 
   return (
     <div className="App">
-      <Search/>
+      <Search loadWeather={getWeather} error={error}/>
       <Weather 
         city={city} 
         country={country} 

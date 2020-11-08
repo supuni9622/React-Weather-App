@@ -1,10 +1,13 @@
 import React from 'react'
 import './Search.css'
 
-const Search = () => {
+const Search = ({loadWeather, error}) => {
     return (
         <div className='container'>
-           <form>
+            <div>
+                {error && Error()}
+            </div>
+           <form onSubmit={loadWeather}>
                 <div className='row'>
                     <div className='col-md-3 offset-md-2'>
                         <input 
@@ -29,6 +32,15 @@ const Search = () => {
                     </div>
                 </div>
            </form>
+        </div>
+    )
+}
+
+// Error function
+const Error = () => {
+    return (
+        <div className='alert alert-danger mx-5' role='alert'>
+            Please enter city and country
         </div>
     )
 }
