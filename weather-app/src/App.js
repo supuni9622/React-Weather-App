@@ -12,7 +12,6 @@ const API_key = '4939b73b7de87f845f81350795c47adc'
 
 const App = () => {
   const [city, setCity] =useState('')
-  const [country, setCountry] = useState('')
   const [icon, setIcon] = useState(undefined)
   const [main, setMain] = useState(undefined)
   const [celsius, setCelsius] = useState(undefined)
@@ -73,13 +72,12 @@ const App = () => {
     const city = e.target.elements.city.value
     const country = e.target.elements.country.value
 
-    if(city && country){
+    if(city || (city && country)){
 
       const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_key}`) 
       const response = await api_call.json()
-      console.log(response)
-      setCity(response.name)
-      setCountry(response.sys.country)
+      //console.debug(response)
+      setCity(`${response.name},${response.sys.country}`)
       setCelsius(calCelsius(response.main.temp))
       setTemp_min(calCelsius(response.main.temp_min))
       setTemp_max(calCelsius(response.main.temp_max))
@@ -99,7 +97,6 @@ const App = () => {
       <Search loadWeather={getWeather} error={error}/>
       <Weather 
         city={city} 
-        country={country} 
         temp_celcius={celsius} 
         temp_min={temp_min} 
         temp_max={temp_max} 
