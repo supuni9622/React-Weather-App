@@ -9,21 +9,22 @@ const minmaxTemp = (min,max) => {
     )
 }
 
-const Weather = ({city, country}) => {
+const Weather = ({city, country, temp_celcius,temp_min,temp_max, description, weatherIcon, main }) => {
     return (
         <div className='container'>
             <h1>Weather App</h1>
             <div className="cards">
                 <h1>{city}, {country}</h1>
                 <h5 className='py-4'>
-                    <i className='wi wi-day-sunny' display='1'/>
+                    <i className={`wi ${weatherIcon}`} display='1'/>
                 </h5>
-                <h1 className='py-2'>25&deg;</h1>
+                    <h1 className='py-2'>{temp_celcius}&deg;</h1>
                 {/* show max and min temp */}
                 {
-                    minmaxTemp(24,19)
+                    minmaxTemp(temp_min,temp_max)
                 }
-                <h4 className='py-3'>Slow Rain</h4>
+                <h4 className='py-3'>{description}</h4>
+                <h5 className='py-3'> {main} </h5>
             </div>
         </div>
     )
